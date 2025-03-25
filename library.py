@@ -18,3 +18,4 @@ def createUser():
         "contraseña": user_password
     }
     print(f"Usuario {user_name} registrado correctamente.\n")   
+    
