@@ -39,3 +39,35 @@ def showUsers():
     for id, user in users.items():
         print(f"Documento: {id}, Nombre: {user['nombre']} {user['apellido']}, Teléfono: {user['telefono']}, Email: {user['email']}")
     print()
+
+#US3/ BOOK CREATION
+class Biblioteca:
+    def __init__(self):
+        self.libros = []
+
+    def agregar_libro(self, titulo, autor, year):
+        libro = {"titulo": titulo, "autor": autor, "year": year}
+        self.libros.append(libro)
+        print(f"Libro '{titulo}' agregado correctamente.\n")
+
+    def mostrar_libros(self):
+        if not self.libros:
+            print("No hay libros en la biblioteca.\n")
+            return
+        for i, libro in enumerate(self.libros, 1):
+            print(f"{i}. {libro['titulo']} - {libro['autor']} ({libro['year']})")
+        print()
+
+    def actualizar_libro(self, indice, nuevo_titulo, nuevo_autor, nuevo_year):
+        if 0 <= indice < len(self.libros):
+            self.libros[indice] = {"titulo": nuevo_titulo, "autor": nuevo_autor, "year": nuevo_year}
+            print("Libro actualizado correctamente.\n")
+        else:
+            print("Indice invalido.\n")
+
+    def eliminar_libro(self, indice):
+        if 0 <= indice < len(self.libros):
+            libro_eliminado = self.libros.pop(indice)
+            print(f"Libro '{libro_eliminado['titulo']}' eliminado correctamente.\n")
+        else:
+            print("Indice invalido.\n")
